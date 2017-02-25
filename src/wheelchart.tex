@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adapted and modified from this posts:
+% http://tex.stackexchange.com/questions/17898/how-can-i-produce-a-ring-or-wheel-chart-like-that-on-page-88-of-the-pgf-manu
+% http://tex.stackexchange.com/questions/82727/create-a-ring-diagram-in-tex/82729#82729
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+\usepackage{tikz}
+\begin{document}
+
+% The main wheelchart macro
+\newcommand{\wheelchart}[6]{
+	
+    % Calculate total
+    \pgfmathsetmacro{\totalnum}{0}
+    \foreach \value/\colour/\name in {#1} {
+        \pgfmathparse{\value+\totalnum}
+        \global\let\totalnum=\pgfmathresult
+    }
+
+    \begin{tikzpicture}
+      % The text in the center of the wheel
+      \node[align=center,text width=2*#3]{#2};
+
+      % Calculate the thickness and the middle line of the wheel
+      \pgfmathsetmacro{\wheelwidth}{#4-#3}
+      \pgfmathsetmacro{\midradius}{(#4+#3)/2}
+
+      % Rotate so we start from the top
+      \begin{scope}[line width=\wheelwidth,rotate=90]
+
+      % Loop through each value set. \cumnum keeps track of where we are in the wheel
+      \pgfmathsetmacro{\cumnum}{0}
+      \foreach \value/\colour/\name in {#1} {
+            \pgfmathsetmacro{\newcumnum}{\cumnum + \value/\totalnum*360}
+
+            % Calculate the percent value
+            \pgfmathsetmacro{\percentage}{\value/\totalnum*100}
+            
+            % Calculate the mid angle of the colour segments to place the labels
+            \pgfmathsetmacro{\midangle}{-(\cumnum+\newcumnum)/2}
+
+			% This is necessary for the labels to align nicely
+			\pgfmathparse{
+				(-\midangle<180?"west":"east")
+			} \edef\textanchor{\pgfmathresult}
+			\pgfmathsetmacro\labelshiftdir{1-2*(-\midangle>180)}
+
+            % Draw the color segments. Somehow, the \midrow units got lost, so we add 'pt' at the end. Not nice...
+            \draw[\colour] (-\cumnum:\midradius pt) arc (-\cumnum:-(\newcumnum):\midradius pt);
+
+            % Draw the data labels
+            \node at (\midangle:#4 + 1ex) [inner sep=0pt, outer sep=0pt, ,anchor=\textanchor]{\name};
+
+
+			\ifx&#5&
+				%Do Nothing if empty
+			\else
+				% The 'spokes' ()gray bars)
+				\foreach \i in {0,...,\value} {
+					\draw [#5,thin] (-\cumnum-\i/\totalnum*360:#3) -- (-\cumnum-\i/\totalnum*360:#4);
+				}	
+			\fi
+            
+            % Set the old cumulated angle to the new value
+            \global\let\cumnum=\newcumnum
+        }
+
+      \end{scope}
+      
+      \ifx&#6&
+          %Do Nothing if empty
+      \else
+	      %Draw the inner and outer circles
+	      \draw[#6] (0,0) circle (#4) circle (#3);
+      \fi
+      
+    \end{tikzpicture}
+}
+
+
+
+% Usage: 
+% \wheelchart {<value1>/<colour1>/<label1>, ...} {Name} {innerRadius} {outerRadius} {innerStrokesColor} {outLinesColor}
+
+\wheelchart{20/green/good,  10/yellow/medium, 9/red/bad, 5/white/neutral}{Ratings}{1.8cm}{2.2cm}{gray}{black}
+
+
+\end{document}
