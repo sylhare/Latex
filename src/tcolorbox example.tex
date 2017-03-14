@@ -1,0 +1,47 @@
+%%
+% Manual : http://mirror.hmc.edu/ctan/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+%
+%%
+
+\documentclass{article}
+
+\usepackage[margin={1cm,5cm}]{geometry}
+\usepackage{multicol}
+\usepackage{lipsum}
+
+\RequirePackage{xcolor}
+\usepackage{tabularx}
+
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\begin{document}
+
+%Some rounded corner color box
+\begin{tcolorbox}[
+    sharp corners, 
+    rounded corners=northeast,
+    colback=green!35!brown,
+    colframe=green!35!brown,
+    arc=5mm,
+    text width=.85cm
+]
+\color{white}Test
+\end{tcolorbox}
+
+%Other colorBox without corners
+\newtcbox{\mybox}{colback=gray!5!white,
+	colframe=white}
+
+\mybox{This is my own box.}
+\noindent
+
+%Multi columns tests
+\begin{multicols*}{2}
+	\lipsum
+	\columnbreak
+	\lipsum
+\end{multicols*}
+
+
+\end{document}

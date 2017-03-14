@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{tabularx}
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\begin{document}
+	
+	\begin{tabularx}{\textwidth}{
+			>{\hsize.2\hsize}X|
+			>{\hsize.2\hsize}X|
+			X|}
+		aaa
+		
+		\[x=y\]
+		&
+		bbb
+		
+		xx
+		zz
+		
+		&ccc
+
+	\end{tabularx}
+
+\begin{table}[htbp]
+    \centering
+    %\begin{tabularx}{\textwidth}{| X | X | X |}
+    \begin{tabularx}{\textwidth}{
+    		X
+    		>{\hsize=.3\hsize}X
+    		}
+        \hline
+        Alpha     & Beta         \\ \hline
+        0         & 2               \\ \hline
+        1         & 3                \\ \hline
+    \end{tabularx}
+\end{table}
+\end{document}
