@@ -10,6 +10,18 @@ You will most likely see three types of file:
 - `.sty` - The style files which define the fonts, and colors
 - `.tex` - The tex files which contains the information mapped in the template
 
+### Installation
+
+You can run the intall_Latex.sh script on Linux (Ubuntu, Debian), I would not recommend to use Windows, but it is nonetheless possible.
+
+Then to add the resources, you can use the getModernCV.sh script for moderncv which will download and install the latest version in your installation folder.
+
+For the other files, add the class and style files in the same folder where you want to run your `.tex` file if you want it to work.
+Or you can move them under `/usr/local/share/texmf/tex/latex/_classname_` (change _classname_ by the according one).
+
+For the fonts, you can install them by double clicking on it or by moving them to `usr/share/fonts` (the font directory). Be careful however it might be hardcoded in the `.sty` file where the fonts are located, so if you move them be sure to update it there too.
+
+
 ### References 
 
 Class (`.cls`) and Styles (`.sty`) references Latex. I've tried to find the link to all author, if I made a mistake please let me know</br>
