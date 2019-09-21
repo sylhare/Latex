@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Awesome Resume/CV
+% XeLaTeX Template
+% Version 1.1 (9/1/2016)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Claud D. Park (posquit0.bj@gmail.com) with modifications by
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+\documentclass[11pt, a4paper]{awesome} % A4 paper size by default, use 'letterpaper' for US letter
+
+\usepackage{multicol}
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+\colorlet{awesome}{awesome-red} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%    PERSONAL INFORMATION
+%    Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{Claud D.}{Kent}
+%\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
+%\mobile{(+82) 10-9030-1843}
+
+\email{posquit0.bj@gmail.com}
+\homepage{www.posquit0.com}
+\github{posquit0}
+\linkedin{posquit0}
+%\skype{skypeid}
+%\stackoverflow{SOid}{SOname}
+%\twitter{@twit}
+
+%\position{Software Engineer{\enskip\cdotp\enskip}Security Expert} % Your expertise/fields
+%\quote{``Make the change that you want to see in the world."} % A quote or statement
+
+%\makecvfooter{\today}{Claud D. Park~~~·~~~Résumé}{\thepage} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+    %    \makecvheader % Print the header
+
+    %----------------------------------------------------------------------------------------
+    %    CV/RESUME CONTENT
+    %    Each section is imported separately, open each file in turn to modify content
+    %----------------------------------------------------------------------------------------
+
+    \cvtag{UX, Mobile Devices, Product Management}
+
+    \begin{multicols}{3}
+        \Centering{\Large\color{awesome}\faLinux} Linux
+
+        \columnbreak
+
+        {\Large\color{awesome}\faWindows} Windows
+
+        \columnbreak
+
+        {\Large\color{awesome}\faApple} Mac OS
+        %\vfill\null
+    \end{multicols}
+
+    \begin{cvskills}
+
+        %---------------------------------------------------------
+        \cvskill
+        {Programming} % Category
+        {Python, Node.JS, C/C++, Scala, JAVA, OCaml, LaTeX} % Skills
+
+        %---------------------------------------------------------
+        \cvskill
+        {Web} % Category
+        {Django, Express, Redux, React, HTML5, LESS, SASS} % Skills
+
+        %---------------------------------------------------------
+        \cvskill
+        {Languages} % Category
+        {Korean, English, Japanese, Chinese} % Skills
+
+        %---------------------------------------------------------
+    \end{cvskills}
+
+    \cvsection{\faSuitcase\space Experience}
+
+    \begin{tabularx}{\textwidth}{
+    >{\hsize.3\hsize}X
+    >{\hsize.001\hsize}X
+    X}
+        \cvskillset{English}{3}
+        \cvskillset{English}{3}
+        \cvskillset{English}{3}
+        \cvskillset{English}{3}
+
+        &\space
+        &\cvtag{{UX}, {AB}, {CDEF}, {This is a test}} \cvtag{Mobile Devices } \cvtag{Product Management}\\
+
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{
+    >{\hsize.4\hsize}X
+    X}
+        \cvskillset{French}{5}
+        \cvskillset{English}{5}
+        \cvskillset{Portuguese}{3}
+        \cvskillset{Spanish}{3}
+        \cvskillset{Japanese}{2}
+
+        &\cvtag{{UX}, {AB}, {CDEF}, {This is a test}} \cvtag{Mobile Devices } \cvtag{Product Management}
+        % to make subrows\\
+
+    \end{tabularx}
+
+    \begin{tabularx}{\textwidth}{
+    >{\hsize.3\hsize}X
+    >{\hsize.1\hsize}X
+    X}
+        \wheelchart{20/green/good,  10/yellow/medium, 9/awesome/bad, 5/gray!10/neutral}{Ratings}{1cm}{1.4cm}
+
+        &\space
+        &\cvskillbar{{polite/2}, {honesty/4.6}, {Modesty/3.5}}
+
+    \end{tabularx}
+
+    \colorlet{awesome}{awesome-skyblue}
+    \vspace{-6mm}
+
+    \cvachievement{\faTrophy}{Award's name}{Winning an award that was hard ya know}
+
+    \cvsection{\faWrench\space Skills}
+
+    \cvskillset{English}{3}
+    \cvskillset{French}{5}
+    \cvskillset{Samoa}{2}
+    \cvskillset{Algebra}{4}
+
+
+
+
+    %----------------------------------------------------------------------------------------
+    %    SECTION TITLE
+    %----------------------------------------------------------------------------------------
+
+    \cvsection{\faMortarBoard\space Education}
+
+    \begin{cventries}
+
+        %------------------------------------------------
+
+        \cventry
+        {M.Sc. in Computer Science and Engineering} % Degree
+        {UltimaTech Central Academy} % Institution
+        {2010 - 2015} % Location
+        {Centaurus} % Date(s)
+        { % Description(s) bullet points
+        \begin{cvitems}
+            \item {Trying new stuff every day and every nights all of the night}
+        \end{cvitems}
+        }
+
+
+        \colorlet{awesome}{awesome-blue}
+
+        %----------------------------------------------------------
+
+        \cvsection{\faPaperPlane\space Extracurricular Activities}
+
+        \begin{multicols}{2}
+
+            \cvachievement{\faVideoCamera}{Audiovisual}{I enjoy using mounting videos (Adobe Premiere)}
+
+            \cvachievement{\faPaintBrush}{Graphics}{I like graphical art, and add an extra effort to make my documents good-looking}
+
+            \columnbreak
+
+            \cvachievement{\faCode}{Code}{I love to discover new technologies and IT tricks}
+
+            \cvachievement{\faGlobe}{language}{I am a self learner, teaching myself japanese and portuguese}
+
+        \end{multicols}
+
+
+        %------------------------------------------------
+
+    \end{cventries}
+
+    %----------------------------------------------------------------------------------------
+
+\end{document}
